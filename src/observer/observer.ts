@@ -1,5 +1,6 @@
 import { Datastore } from 'lapisdb'
 import express from 'express'
+import path from 'path'
 import pretty from 'express-prettify'
 import cors from 'cors'
 import history from 'connect-history-api-fallback';
@@ -44,11 +45,11 @@ export class LapisObservatory {
     })
 
     this.webPageServer = express()
-    const path = 'node_modules/lapisdb_viewer/www/'
-    const staticServer = express.static(path)
+    const dir = path.join(__dirname, '../../www')
+    const staticServer = express.static(dir)
 
     this.webPageServer.use(staticServer)
-    this.webPageServer.use(history({index: `${path}/index.html`}))
+    this.webPageServer.use(history({index: `${dir}/index.html`}))
     this.webPageServer.use(staticServer)
 
     this.webPageServer.listen(port, () => {

@@ -1,5 +1,5 @@
 import { Datastore } from 'lapisdb'
-import { LapisObservatory } from '../../src/index'
+import { LapisObservatory } from '../node_modules/lapisdb_observatory/dist/index'
 import { Human, Dog } from './models';
 
 const bootstrap = async () => {
