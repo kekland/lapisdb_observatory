@@ -1,15 +1,30 @@
 header {
-  background: #5851ff;
-  color: white;
-  height: 56px;
+  color: #aaa;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  margin-left: 12px;
 }
 
 h1 {
   font-size: 1.4rem;
   font-weight: 500;
-  color: #fff;
   padding: 0 12px;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #212121;
+  height: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#info {
+  color: #545454;
+  font-weight: 500;
 }

@@ -6,16 +6,14 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import {
-  MatchResults,
-} from '@stencil/router';
+
 
 export namespace Components {
   interface AppHome {}
-  interface AppProfile {
-    'match': MatchResults;
-  }
   interface AppRoot {}
+  interface DatastoreCard {
+    'name': string;
+  }
 }
 
 declare global {
@@ -27,35 +25,35 @@ declare global {
     new (): HTMLAppHomeElement;
   };
 
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLDatastoreCardElement extends Components.DatastoreCard, HTMLStencilElement {}
+  var HTMLDatastoreCardElement: {
+    prototype: HTMLDatastoreCardElement;
+    new (): HTMLDatastoreCardElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
-    'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'datastore-card': HTMLDatastoreCardElement;
   }
 }
 
 declare namespace LocalJSX {
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
-  interface AppProfile extends JSXBase.HTMLAttributes<HTMLAppProfileElement> {
-    'match'?: MatchResults;
-  }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface DatastoreCard extends JSXBase.HTMLAttributes<HTMLDatastoreCardElement> {
+    'name'?: string;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
-    'app-profile': AppProfile;
     'app-root': AppRoot;
+    'datastore-card': DatastoreCard;
   }
 }
 

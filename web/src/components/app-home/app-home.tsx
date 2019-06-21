@@ -6,22 +6,20 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class AppHome {
-
   render() {
     return (
       <div class='app-home'>
-        <p>
-          Welcome to the Stencil App Starter.
-          You can use this starter to build entire apps all with
-          web components using Stencil!
-          Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
-        </p>
-
-        <stencil-route-link url='/profile/stencil'>
-          <button>
-            Profile page
-          </button>
-        </stencil-route-link>
+        <h1 class='title'>
+          Available datastores
+        </h1>
+        <div class='datastore-cards'>
+          <datastore-card name="humans"></datastore-card>
+          <datastore-card name="dogs"></datastore-card>
+          <datastore-card name="cats"></datastore-card>
+          <datastore-card name="accounts"></datastore-card>
+          <datastore-card name="cargo"></datastore-card>
+          <datastore-card name="vehicles"></datastore-card>
+        </div>
       </div>
     );
   }

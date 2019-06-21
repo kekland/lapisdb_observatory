@@ -1,0 +1,22 @@
+.datastore-card {
+  transition: all 0.15s ease-in-out;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-radius: 12px;
+  background-color: #343434;
+  color: white;
+  padding: 24px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 12px;
+}
+
+.datastore-card:hover {
+  background-color: #454545;
+  transform: scale(1.035, 1.035);
+}
