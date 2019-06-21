@@ -26,6 +26,7 @@
   "dependencies": {
     "@advanced-rest-client/json-viewer": "^3.0.0",
     "axios": "^0.19.0",
+    "connect-history-api-fallback": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-prettify": "^0.1.1",
