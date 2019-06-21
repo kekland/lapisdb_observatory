@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/kekland/lapisdb_observatory#readme",
   "dependencies": {
+    "@advanced-rest-client/json-viewer": "^3.0.0",
     "express": "^4.17.1",
     "express-prettify": "^0.1.1",
     "lapisdb": "^0.1.9"

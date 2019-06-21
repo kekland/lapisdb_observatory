@@ -3,7 +3,7 @@
   width: 200px;
   height: 200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
   border-radius: 12px;
@@ -19,4 +19,9 @@
 .datastore-card:hover {
   background-color: #454545;
   transform: scale(1.035, 1.035);
+}
+
+.open {
+  color: white;
+  text-decoration: none;
 }

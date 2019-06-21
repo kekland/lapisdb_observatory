@@ -6,13 +6,21 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  MatchResults,
+  RouterHistory,
+} from '@stencil/router';
 
 export namespace Components {
   interface AppHome {}
   interface AppRoot {}
   interface DatastoreCard {
+    'history': RouterHistory;
     'name': string;
+  }
+  interface DatastorePage {
+    'history': RouterHistory;
+    'match': MatchResults;
   }
 }
 
@@ -36,10 +44,17 @@ declare global {
     prototype: HTMLDatastoreCardElement;
     new (): HTMLDatastoreCardElement;
   };
+
+  interface HTMLDatastorePageElement extends Components.DatastorePage, HTMLStencilElement {}
+  var HTMLDatastorePageElement: {
+    prototype: HTMLDatastorePageElement;
+    new (): HTMLDatastorePageElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-root': HTMLAppRootElement;
     'datastore-card': HTMLDatastoreCardElement;
+    'datastore-page': HTMLDatastorePageElement;
   }
 }
 
@@ -47,13 +62,19 @@ declare namespace LocalJSX {
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface DatastoreCard extends JSXBase.HTMLAttributes<HTMLDatastoreCardElement> {
+    'history'?: RouterHistory;
     'name'?: string;
+  }
+  interface DatastorePage extends JSXBase.HTMLAttributes<HTMLDatastorePageElement> {
+    'history'?: RouterHistory;
+    'match'?: MatchResults;
   }
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-root': AppRoot;
     'datastore-card': DatastoreCard;
+    'datastore-page': DatastorePage;
   }
 }
 
