@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/kekland/lapisdb_viewer#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "lapisdb": "^0.1.8"
   }
 }
