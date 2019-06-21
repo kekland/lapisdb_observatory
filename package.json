@@ -1,6 +1,6 @@
 {
   "name": "lapisdb_observatory",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A web data observer for LapisDB",
   "main": "build/serve.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "lapisdb": "^0.1.9"
   },
   "devDependencies": {
-    "@types/express": "^4.17.0"
+    "@types/express": "^4.17.0",
+    "rimraf": "^2.6.3"
   }
 }
