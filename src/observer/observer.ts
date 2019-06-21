@@ -44,10 +44,11 @@ export class LapisObservatory {
     })
 
     this.webPageServer = express()
-    const staticServer = express.static('D:/projects/current/_lapis/lapisdb_viewer/www')
-    
+    const path = 'node_modules/lapisdb_viewer/www/'
+    const staticServer = express.static(path)
+
     this.webPageServer.use(staticServer)
-    this.webPageServer.use(history({index: 'D:/projects/current/_lapis/lapisdb_viewer/www/index.html'}))
+    this.webPageServer.use(history({index: `${path}/index.html`}))
     this.webPageServer.use(staticServer)
 
     this.webPageServer.listen(port, () => {
