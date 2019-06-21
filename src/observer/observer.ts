@@ -30,6 +30,8 @@ export class LapisObservatory {
       })
     }
     
-    console.log(`LapisObservatory started on port ${port}`)
+    this.server.listen(port, () => {
+      console.log(`LapisObservatory started on port ${port}`)
+    })
   }
 }
