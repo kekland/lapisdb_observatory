@@ -1,5 +1,6 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 import { MatchResults, RouterHistory } from '@stencil/router';
+import axios from 'axios'
 
 @Component({
   tag: 'datastore-page',
@@ -9,10 +10,21 @@ import { MatchResults, RouterHistory } from '@stencil/router';
 export class AppHome {
   @Prop() history: RouterHistory;
   @Prop() match: MatchResults;
+  @State() data: any[] = [];
 
   getName() {
     return this.match.params.name;
   }
+
+  async getData() {
+    const response = await axios.get(`http://localhost:${parseInt(location.port) + 1}/${this.getName()}/`)
+    this.data = response.data
+  }
+
+  componentDidLoad() {
+    this.getData()
+  }
+
   render() {
     return (
       <div class='datastore-page'>
@@ -21,7 +33,9 @@ export class AppHome {
           <span id='name'>/{this.getName()}</span>
         </div>
         <div class='items'>
-          <json-item></json-item>
+          {
+            this.data.map((data) => <json-item object={data}></json-item>)
+          }
         </div>
       </div>
     );

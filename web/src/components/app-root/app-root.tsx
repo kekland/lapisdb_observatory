@@ -7,12 +7,14 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class AppRoot {
-
+  getPort(): string {
+    return location.port
+  }
   render() {
     return (
       <div>
         <header>
-          <h1>LapisDB Observatory</h1>
+          <h1>LapisDB Observatory on port {this.getPort()}</h1>
         </header>
 
         <main>

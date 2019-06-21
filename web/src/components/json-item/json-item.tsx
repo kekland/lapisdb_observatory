@@ -9,17 +9,7 @@ import { MatchResults, RouterHistory } from '@stencil/router';
 export class JsonItem {
   @Prop() history: RouterHistory;
   @Prop() match: MatchResults;
-  @Prop() object: Object = {
-    a: 'b',
-    b: ['1', '2', '3'],
-    c: {
-      d: '123',
-      e: '12312312',
-      f: 90012,
-      g: true
-    },
-    d: () => {},
-  }
+  @Prop() object: Object;
 
   getName() {
     return this.match.params.name;
@@ -27,7 +17,7 @@ export class JsonItem {
   render() {
     return (
       <div class='json-item'>
-        <span class='id'>HKLnlkmlasdKL125a</span>
+        <span class='id'>{(this.object as any).meta.id}</span>
         <div style={{height: "8px"}} />
         <json-display data={this.object} />
       </div>

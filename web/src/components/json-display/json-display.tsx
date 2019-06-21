@@ -41,7 +41,7 @@ export class JsonDisplay {
         <div style={{ 'padding-left': '12px' }}>
           {
             this.getKeys().map((key) => {
-              console.log(key)
+              if(key == 'store') return null
               if (typeof this.data[key] === 'object') {
                 return <json-display index={key} data={this.data[key]} depth={this.depth + 1} />
               }

@@ -1,6 +1,7 @@
 import { Datastore } from 'lapisdb'
 import express from 'express'
 import pretty from 'express-prettify'
+import cors from 'cors'
 
 export class LapisObservatory {
   datastores: Datastore<any>[];
@@ -14,6 +15,7 @@ export class LapisObservatory {
     console.log(`Starting LapisObservatory on port ${port}`)
     this.server = express()
     this.server.use(pretty())
+    this.server.use(cors())
 
     for (const datastore of this.datastores) {
       const name = datastore.name
@@ -27,6 +29,10 @@ export class LapisObservatory {
       this.server.get(`/${name}/:id`, async (req, res) => {
         const data = await datastore.get().where(v => v.meta.id === req.params.id).run()
         res.json(data)
+      })
+
+      this.server.get(`/stores`, async (req, res) => {
+        res.json(this.datastores.map(d => d.name))
       })
     }
     
