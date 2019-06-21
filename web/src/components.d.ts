@@ -22,6 +22,20 @@ export namespace Components {
     'history': RouterHistory;
     'match': MatchResults;
   }
+  interface JsonDisplay {
+    'data': Object;
+    'depth': number;
+    'index': string;
+  }
+  interface JsonItem {
+    'history': RouterHistory;
+    'match': MatchResults;
+    'object': Object;
+  }
+  interface JsonKeyPair {
+    'index': any;
+    'value': any;
+  }
 }
 
 declare global {
@@ -50,11 +64,32 @@ declare global {
     prototype: HTMLDatastorePageElement;
     new (): HTMLDatastorePageElement;
   };
+
+  interface HTMLJsonDisplayElement extends Components.JsonDisplay, HTMLStencilElement {}
+  var HTMLJsonDisplayElement: {
+    prototype: HTMLJsonDisplayElement;
+    new (): HTMLJsonDisplayElement;
+  };
+
+  interface HTMLJsonItemElement extends Components.JsonItem, HTMLStencilElement {}
+  var HTMLJsonItemElement: {
+    prototype: HTMLJsonItemElement;
+    new (): HTMLJsonItemElement;
+  };
+
+  interface HTMLJsonKeyPairElement extends Components.JsonKeyPair, HTMLStencilElement {}
+  var HTMLJsonKeyPairElement: {
+    prototype: HTMLJsonKeyPairElement;
+    new (): HTMLJsonKeyPairElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-root': HTMLAppRootElement;
     'datastore-card': HTMLDatastoreCardElement;
     'datastore-page': HTMLDatastorePageElement;
+    'json-display': HTMLJsonDisplayElement;
+    'json-item': HTMLJsonItemElement;
+    'json-key-pair': HTMLJsonKeyPairElement;
   }
 }
 
@@ -69,12 +104,29 @@ declare namespace LocalJSX {
     'history'?: RouterHistory;
     'match'?: MatchResults;
   }
+  interface JsonDisplay extends JSXBase.HTMLAttributes<HTMLJsonDisplayElement> {
+    'data'?: Object;
+    'depth'?: number;
+    'index'?: string;
+  }
+  interface JsonItem extends JSXBase.HTMLAttributes<HTMLJsonItemElement> {
+    'history'?: RouterHistory;
+    'match'?: MatchResults;
+    'object'?: Object;
+  }
+  interface JsonKeyPair extends JSXBase.HTMLAttributes<HTMLJsonKeyPairElement> {
+    'index'?: any;
+    'value'?: any;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-root': AppRoot;
     'datastore-card': DatastoreCard;
     'datastore-page': DatastorePage;
+    'json-display': JsonDisplay;
+    'json-item': JsonItem;
+    'json-key-pair': JsonKeyPair;
   }
 }
 

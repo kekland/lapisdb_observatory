@@ -20,8 +20,8 @@ export class AppHome {
           <span id='info'>Datastore</span>
           <span id='name'>/{this.getName()}</span>
         </div>
-        <div class='datastore'>
-          
+        <div class='items'>
+          <json-item></json-item>
         </div>
       </div>
     );

@@ -1,0 +1,27 @@
+.key {
+  font-size: 16px;
+  color: #888;
+  font-family: monospace;
+}
+
+.value {
+  font-size: 16px;
+  color: #eee;
+  font-family: monospace;
+}
+
+.blue {
+  color: #2196F3;
+}
+
+.orange {
+  color: #FF9800;
+}
+
+.green {
+  color: #4CAF50;
+}
+
+#info {
+  color: #bbb;
+}
