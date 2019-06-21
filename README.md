@@ -10,6 +10,11 @@ A web observatory for [**LapisDB**](https://github.com/kekland/lapisdb).
 
 I am still working on this project, and many things **might change in future**.
 
+## Screenshots
+
+![screenshot 1](./images/main.jpg)
+![screenshot 2](./images/humans.jpg)
+
 ## 💾 Installation
 
 [**Download via NPM**](https://https://www.npmjs.com/package/lapisdb_observatory)
