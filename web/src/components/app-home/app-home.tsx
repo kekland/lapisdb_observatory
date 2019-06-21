@@ -1,4 +1,5 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, State } from '@stencil/core';
+import axios from 'axios'
 
 @Component({
   tag: 'app-home',
@@ -6,6 +7,16 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class AppHome {
+  @State() datastores: string[] = []
+
+  async getData() {
+    const response = await axios.get(`http://localhost:${parseInt(location.port) + 1}/stores`)
+    this.datastores = response.data
+  }
+
+  componentDidLoad() {
+    this.getData()
+  }
   render() {
     return (
       <div class='app-home'>
@@ -13,12 +24,9 @@ export class AppHome {
           Available datastores
         </h1>
         <div class='datastore-cards'>
-          <datastore-card name="humans"></datastore-card>
-          <datastore-card name="dogs"></datastore-card>
-          <datastore-card name="cats"></datastore-card>
-          <datastore-card name="accounts"></datastore-card>
-          <datastore-card name="cargo"></datastore-card>
-          <datastore-card name="vehicles"></datastore-card>
+          {
+            this.datastores.map(store => <datastore-card name={store} />)
+          }
         </div>
       </div>
     );
